@@ -7,19 +7,27 @@
 //
 
 import UIKit
+import CoreImage
+
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var personPic: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        personPic.image = UIImage(named: "face-1")
+
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func detect(){
+        guard let personciImage = CIImage(image: personPic.image!) else {
+            return
+        }
+        
+        let accuracy = [CIDetectorAccuracy: CIDetectorAccuracyHigh]
+        
+        
     }
-
-
+    
 }
-
